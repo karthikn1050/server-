@@ -14,8 +14,11 @@ process.on('unhandledRejection', (reason, promise) => {
 app.get('/market_status', (req, res) => {
 NSEAPI.getMarketStatus().then((response) => {
   res.json(response.data);
+}).catch(err => {
+  console.log(err);
+  res.sendStatus(500);});
 }); 
-});
+
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
