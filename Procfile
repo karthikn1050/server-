@@ -1,1 +1,1 @@
-web: npm web start
+web:node index.js
