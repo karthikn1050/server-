@@ -14,9 +14,7 @@ process.on('unhandledRejection', (reason, promise) => {
 app.get('/market_status', (req, res) => {
 NSEAPI.getMarketStatus().then((response) => {
   res.json(response.data);
-}).catch(err => {
-  console.log(err);
-  res.sendStatus(500);});
+})
 }); 
 
 
@@ -35,18 +33,14 @@ app.get('/stocks_info', (req, res) => {
   NSEAPI.getQuoteInfo(req.query.companyName)
       .then(function (response) {
         res.json(response.data);
-      }).catch(err => {
-        console.log(err);
-        res.sendStatus(500);})
+      })
 });
 
 app.get('/indices_info', (req, res) => {
   NSEAPI.getIndices()
       .then(function (response) {
         res.json(response.data);
-      }).catch(err => {
-        console.log(err);
-        res.sendStatus(500);})
+      })
 });
 
 app.listen(PORT, () => {
