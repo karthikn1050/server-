@@ -7,10 +7,7 @@ const process = require('process');
 const PORT = process.env.PORT || 5000 ;
 
 
-process.on('unhandledRejection', (reason, promise) => {
-  console.log('Unhandled Rejection at:', promise, 'reason:', reason);
-  // Application specific logging, throwing an error, or other logic here
-});
+
 app.get('/market_status', (req, res) => {
 NSEAPI.getMarketStatus().then((response) => {
   res.json(response.data);
