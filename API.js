@@ -12,10 +12,11 @@ var axios = require('axios');
   });
 }
  async function getIndices() {
- const request = await axios.get('https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/liveIndexWatchData.json' , headers: {
+ const request = await axios.get('https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/liveIndexWatchData.json'),{
+   headers: {
       Referer: 'https://www1.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuote.jsp?symbol=' + encodeURIComponent(symbol),
       'X-Requested-With': 'XMLHttpRequest'
-    });
+    }}
  return request;
 }
 
