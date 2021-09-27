@@ -1,9 +1,9 @@
 var axios = require('axios');
 
 
-function getMarketStatus() {
+ function getMarketStatus() {
   return axios.get('https://www1.nseindia.com//emerge/homepage/smeNormalMktStatus.json', {
-     function (data) {
+   function (data) {
       return {
         
         status: console.log(data).NormalMktStatus
@@ -11,9 +11,9 @@ function getMarketStatus() {
     }
   });
 }
-
-function getIndices() {
-  return axios.get('https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/liveIndexWatchData.json');
+ async function getIndices() {
+ const request = await axios.get('https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/liveIndexWatchData.json');
+ return request;
 }
 
 
@@ -28,9 +28,9 @@ function getQuoteInfo(symbol) {
 
 
 var NSEAPI = {
-  getMarketStatus: getMarketStatus,
-  getIndices: getIndices,
-  getQuoteInfo: getQuoteInfo,
+  getMarketStatus,
+  getIndices,
+  getQuoteInfo,
  
 };
 
